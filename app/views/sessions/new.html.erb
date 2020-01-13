@@ -1,0 +1,24 @@
+<div class="display-center">
+  <%= form_with url: sessions_path, method: :post, local: true do |f| %>
+    <h2>詳細新規登録</h2>
+    <div class="field">
+      <%= f.label "メール" %><br />
+      <%= f.email_field :email %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label "パスワード" %><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label "パスワード(確認)" %><br />
+      <%= f.password_field :password_digest, autocomplete: "off" %>
+    </div>
+
+    <div class="user-btn">
+      <%= f.submit "次へ進む" %>
+    </div>
+  <% end %>
+</div>

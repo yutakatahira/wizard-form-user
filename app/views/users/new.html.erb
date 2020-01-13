@@ -1,0 +1,74 @@
+<div class="display-center">
+  <%= form_with model: @user, local: true do |f| %>
+    <h2>詳細新規登録</h2>
+    <%= f.fields_for :user_detail do |i| %>
+
+        <div class="field">
+          <%= i.label "お名前"  %>
+        </div>
+        <div class="field field-margin">
+          <%= i.text_field :last_name, autofocus: true, maxlength: "20" , class: "field__half", value: "#{session[:last_name]}" %>
+        </div>
+        <div class="field">
+          <%= i.text_field :first_name, autofocus: true, maxlength: "20" , class: "field__half", value: "#{session[:first_name]}"%>
+        </div>
+
+        <div class="field">
+          <%= i.label "お名前カナ"  %>
+        </div>
+        <div class="field field-margin">
+          <%= i.text_field :last_name_kana, autofocus: true, maxlength: "20" , class: "field__half", value: "#{session[:last_name_kana]}"%>
+        </div>
+        <div class="field">
+          <%= i.text_field :first_name_kana, autofocus: true, maxlength: "20" , class: "field__half", value: "#{session[:first_name_kana]}"%>
+        </div>
+
+        <div class="field">
+          <%= i.label "郵便番号" %>
+        </div>
+        <div class="field">
+          <%= i.text_field :postal_code, size: 8, max_length: 8, placeholder: '1000000' %>
+        </div>
+
+        <div class="field">
+          <%= i.label "都道府県" %>
+        </div>
+        <div class="field">
+          <%= i.select :prefecture_id, Prefecture.all.map {|k| [k.name, k.id]}, { include_blank: "---", selected: "---"}, { class: "item-container__form-content__group-select__list" } %>
+        </div>
+
+        <div class="field">
+          <%= i.label "市区町村" %>
+        </div>
+        <div class="field">
+          <%= i.text_field :city, autofocus: true, maxlength: "20" %>
+        </div>
+
+        <div class="field">
+          <%= i.label "番地" %>
+        </div>
+        <div class="field">
+          <%= i.text_field :address, autofocus: true, maxlength: "20" %>
+        </div>
+
+        <div class="field">
+          <%= i.label "建物" %>
+        </div>
+        <div class="field">
+          <%= i.text_field :building_name, autofocus: true, maxlength: "20" %>
+        </div>
+
+        <div class="field">
+          <%= i.label "プロフィール" %>
+        </div>
+        <div class="field">
+          <%= i.text_area :introduction, autofocus: true, col: "3", row: "2" %>
+        </div>
+
+    <% end %>
+
+    <div class="user-btn">
+      <%= f.submit "次へ進む" %>
+    </div>
+  <% end %>
+</div>

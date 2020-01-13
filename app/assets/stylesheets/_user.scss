@@ -1,0 +1,20 @@
+.display-center {
+  display: flex;
+  justify-content: center;
+}
+
+.user-btn {
+  margin-top: 10px;
+}
+
+.field {
+  &__half {
+    &:first-of-type {
+      margin-right: 24px;
+    }
+  }
+}
+
+.field-margin {
+  margin-bottom: 10px;
+}

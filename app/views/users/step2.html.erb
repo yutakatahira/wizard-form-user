@@ -1,0 +1,14 @@
+<div class="display-center">
+  <%= form_with model: @user, url: new_user_path, method: :get, local: true do |f| %>
+    <h2>電話番号認証</h2>
+    <%= f.fields_for :user_detail do |i| %>
+      <div class="field">
+        <%= i.label "電話番号" %> <br />
+        <%= i.telephone_field :phone_number %>
+      </div>
+    <% end %>
+    <div class="user-btn">
+      <%= f.submit "次へ進む" %>
+    </div>
+  <% end %>
+</div>
