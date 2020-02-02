@@ -13,7 +13,8 @@ class UserDetail < ApplicationRecord
                    with: VALID_KATAKANA_REGEX,
                    message: "全角カタカナのみで入力して下さい"
                  }, on: :step2
-  validates :birth_year, :birth_month, :birth_day, presence: true, on: :create
+  validates :birth_year, :birth_month, :birth_day, presence: true, on: :step2
   validates :phone_number, presence: true, format: { with: VALID_PHONENUMBER_REGEX }, on: :new
   validates :postal_code, presence: true, format: { with: VALID_POSTALCODE_REGEX }, on: :create
+  validates :prefecture_id, :city, :address, presence: true, on: :create
 end
