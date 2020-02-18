@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_digest, :remember_token,user_detail_attributes: [:last_name, :first_name, :last_name_kana, :first_name_kana,"birth_day(1i)" , "birth_day(2i)", "birth_day(3i)", :phone_number, :city, :address, :building_name, :prefecture_id, :postal_code, :introduction])
+    params.require(:user).permit(:nickname, :email, :password, :password_digest, :remember_token,user_detail_attributes: [:last_name, :first_name, :last_name_kana, :first_name_kana,"birth_day(1i)" , "birth_day(2i)", "birth_day(3i)", :phone_number, :city, :address, :building_name, :prefecture_id, :postal_code, :introduction, :image])
   end
 
 end

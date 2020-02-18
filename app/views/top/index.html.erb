@@ -1,6 +1,7 @@
 <% if signed_in? %>
   <h2>ログイン成功です！！！！！！！！！！！！！！！！！</h2>
   <%= link_to "ログアウト", session_path(current_user.id), method: :delete ,class: "btn btn-success" %>
+  <%= link_to "画像投稿する", session_path(current_user.id), method: :delete ,class: "btn btn-success" %>
 <% else %>
   <%= link_to "新規登録", step1_users_path ,class: "btn btn-success" %>
   <%= link_to "ログイン", new_session_path ,class: "btn btn-success" %>
