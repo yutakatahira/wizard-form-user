@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: wizard-form-user_production
-  username: wizard-form-user
-  password: <%= ENV['WIZARD-FORM-USER_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
