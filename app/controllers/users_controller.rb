@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       password: session[:password] = user_params[:password], 
       password_digest: session[:password_digest] = user_params[:password_digest]
       )
-    session[:image] = @user.image.attach(io: user_params[:image].read(), filename: user_params[:image].original_filename)
     @user.build_user_detail(
       last_name: session[:last_name] = user_params[:user_detail_attributes][:last_name], 
       first_name: session[:first_name] = user_params[:user_detail_attributes][:first_name], 
@@ -38,7 +37,8 @@ class UsersController < ApplicationController
       nickname: session[:nickname],
       email: session[:email],
       password_digest: session[:password_digest],
-      password: session[:password_digest]
+      password: session[:password_digest],
+      image: user_params[:image]
       )
     @user.build_user_detail(
       last_name: session[:last_name],
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password, :password_digest, :remember_token, :image ,user_detail_attributes: [:last_name, :first_name, :last_name_kana, :first_name_kana,"birth_day(1i)" , "birth_day(2i)", "birth_day(3i)", :phone_number, :city, :address, :building_name, :prefecture_id, :postal_code, :introduction])
+    params.require(:user).permit(:nickname, :email, :password, :password_digest, :remember_token, :image,user_detail_attributes: [:last_name, :first_name, :last_name_kana, :first_name_kana,"birth_day(1i)" , "birth_day(2i)", "birth_day(3i)", :phone_number, :city, :address, :building_name, :prefecture_id, :postal_code, :introduction])
   end
 
 end
