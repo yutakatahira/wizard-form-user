@@ -86,6 +86,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "rails-i18n"
 
-gem "carrierwave"
-gem "mini_magick"
 gem 'font-awesome-rails'
+
+gem "aws-sdk-s3", require: false

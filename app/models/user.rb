@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one :user_detail
+  has_one_attached :image
   accepts_nested_attributes_for :user_detail
   has_secure_password validations: false
   before_create :create_remember_token
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   validates :nickname, presence: true, on: :step2
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, on: :step2
   validates :password_digest, presence: true, length: { minimum: 7 }, format: { with: VALID_PASSWORD_REGEX }, on: :step2
+  validates :image, presence: true, on: :step2
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

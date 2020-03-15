@@ -1,5 +1,5 @@
 <div class="display-center">
-  <%= form_with model: @user, local: true do |f| %>
+  <%= form_with model: @user, local: true, multipart: true do |f| %>
     <h2>詳細新規登録</h2>
     <%= f.fields_for :user_detail do |i| %>
 
@@ -66,6 +66,10 @@
         </div>
 
     <% end %>
+
+    <div class="field">
+      <%= f.file_field :image, direct_upload: false %>
+    </div>
 
     <div class="user-btn">
       <%= f.submit "次へ進む" %>
